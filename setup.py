@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""Setup.py for Bio2BEL."""
+"""Setup.py for pybel-artifactory."""
 
 import codecs
 import os
