@@ -31,7 +31,11 @@ INSTALL_REQUIRES = [
 ]
 EXTRAS_REQUIRE = {}
 TESTS_REQUIRE = []
-ENTRY_POINTS = {}
+ENTRY_POINTS = {
+    'console_scripts': [
+        'pybel-artifactory = pybel_artifactory.cli:main',
+    ]
+}
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
