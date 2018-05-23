@@ -38,7 +38,7 @@ __all__ = (
         today.__all__
 )
 
-__version__ = '0.0.1'
+__version__ = '0.0.2-dev'
 
 __title__ = 'pybel_artifactory'
 __description__ = 'A PyBEL extension for handling BEL resources with Artifactory'
