@@ -9,8 +9,8 @@ import hashlib
 from getpass import getuser
 
 from pybel.constants import NAMESPACE_DOMAIN_OTHER
-from pybel.resources import hash_names, parse_bel_resource, write_annotation, write_namespace
-from . import get_bel_resource_hash
+from pybel.resources import parse_bel_resource, write_annotation, write_namespace
+from . import get_bel_resource_hash, hash_names
 from .history import get_annotation_history, get_namespace_history
 
 
