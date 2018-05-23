@@ -17,12 +17,12 @@ from .history import get_annotation_history, get_namespace_history
 @click.group()
 @click.version_option()
 def main():
-    """PyBEL-Artifactory Command Line Interface"""
+    """PyBEL-Artifactory Command Line Interface."""
 
 
 @main.group()
 def namespace():
-    """Namespace file utilities"""
+    """Namespace file utilities."""
 
 
 @namespace.command()
@@ -42,7 +42,7 @@ def namespace():
 @click.option('--value-prefix', default='')
 def write(name, keyword, domain, citation, author, description, species, version, contact, licenses, values,
           functions, output, value_prefix):
-    """Builds a namespace from items"""
+    """Build a namespace from items."""
     write_namespace(
         name, keyword, domain, author, citation, values,
         namespace_description=description,
@@ -70,14 +70,14 @@ def _hash_helper(file):
 @namespace.command()
 @click.option('-f', '--file', type=click.File('r'), default=sys.stdin)
 def semhash(file):
-    """Semantic hash a namespace file"""
+    """Semantic hash a namespace file."""
     _hash_helper(file)
 
 
 @namespace.command()
 @click.argument('namespace_module')
 def history(namespace_module):
-    """Hash all versions on Arty"""
+    """Hash all versions on Artifactory."""
     for path in get_namespace_history(namespace_module):
         h = get_bel_resource_hash(path.as_posix())
         click.echo('{}\t{}'.format(path, h))
