@@ -4,7 +4,7 @@
 
 from artifactory import ArtifactoryPath
 
-from .constants import ARTIFACTORY_ANNOTATION_BASE, ARTIFACTORY_BEL_BASE, ARTIFACTORY_NAMESPACE_BASE
+from .constants import ARTIFACTORY_ANNOTATION_BASE_URL, ARTIFACTORY_KNOWLEDGE_BASE_URL, ARTIFACTORY_NAMESPACE_BASE_URL
 
 
 def get_path_helper(module_name, getter):
@@ -23,7 +23,7 @@ def get_arty_namespace_module(namespace):
     :param namespace:
     :return:
     """
-    return '{}{}/'.format(ARTIFACTORY_NAMESPACE_BASE, namespace)
+    return '{}/{}'.format(ARTIFACTORY_NAMESPACE_BASE_URL, namespace)
 
 
 def get_arty_namespace(namespace, version):
@@ -33,24 +33,27 @@ def get_arty_namespace(namespace, version):
     :param version:
     :return:
     """
-    return '{}-{}.belns'.format(namespace, version)
+    return '{module}-{version}.belns'.format(
+        module=namespace,
+        version=version
+    )
 
 
 def get_arty_namespace_url(namespace, version):
     """Get a BEL namespace file from artifactory given the name and version."""
-    return '{module}{name}'.format(
+    return '{module}/{name}'.format(
         module=get_arty_namespace_module(namespace),
         name=get_arty_namespace(namespace, version),
     )
 
 
-def get_arty_annotation_module(module_name):
+def get_arty_annotation_module(module):
     """
 
-    :param module_name:
+    :param module:
     :return:
     """
-    return '{}{}/'.format(ARTIFACTORY_ANNOTATION_BASE, module_name)
+    return '{base}/{module}'.format(base=ARTIFACTORY_ANNOTATION_BASE_URL, module=module)
 
 
 def get_arty_annotation(module_name, version):
@@ -60,14 +63,17 @@ def get_arty_annotation(module_name, version):
     :param version:
     :return:
     """
-    return '{}-{}.belanno'.format(module_name, version)
+    return '{module}-{version}.belanno'.format(
+        module=module_name,
+        version=version
+    )
 
 
-def get_arty_annotation_url(module_name, version):
+def get_arty_annotation_url(module, version):
     """Get a BEL annotation file from artifactory given the name and version."""
-    return '{module}{name}'.format(
-        module=get_arty_annotation_module(module_name),
-        name=get_arty_annotation(module_name, version),
+    return '{module}/{name}'.format(
+        module=get_arty_annotation_module(module),
+        name=get_arty_annotation(module, version),
     )
 
 
@@ -77,16 +83,16 @@ def get_arty_knowledge_module(module_name):
     :param module_name:
     :return:
     """
-    return '{}{}/'.format(ARTIFACTORY_BEL_BASE, module_name)
+    return '{base}/{module}'.format(base=ARTIFACTORY_KNOWLEDGE_BASE_URL, module=module_name)
 
 
-def get_arty_knowledge(module_name, version):
+def get_arty_knowledge(module, version):
     """Format the module name and version for a BEL Script.
 
-    :param str module_name:
+    :param str module:
     :param str version:
     """
-    return '{}-{}.bel'.format(module_name, version)
+    return '{module}-{version}.bel'.format(module=module, version=version)
 
 
 def get_arty_knowledge_url(module_name, version):
@@ -96,7 +102,7 @@ def get_arty_knowledge_url(module_name, version):
     :param str version:
     :rtype: str
     """
-    return '{module}{name}'.format(
+    return '{module}/{name}'.format(
         module=get_arty_knowledge_module(module_name),
         name=get_arty_knowledge(module_name, version),
     )
