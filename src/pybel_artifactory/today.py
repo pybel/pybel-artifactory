@@ -4,7 +4,7 @@
 
 import time
 
-from .utils import get_arty_annotation, get_arty_knowledge, get_arty_namespace
+from .utils import get_annotation_file_name, get_knowledge_file_name, get_namespace_file_name
 
 __all__ = [
     'get_namespace_today',
@@ -27,7 +27,7 @@ def get_namespace_today(module_name):
     :param str module_name: The name of the namespace resource
     :rtype: str
     """
-    return get_arty_namespace(module_name, get_iso_8601_date())
+    return get_namespace_file_name(module_name, get_iso_8601_date())
 
 
 def get_annotation_today(module_name):
@@ -36,7 +36,7 @@ def get_annotation_today(module_name):
     :param str module_name: The name of the annotation resource
     :rtype: str
     """
-    return get_arty_annotation(module_name, get_iso_8601_date())
+    return get_annotation_file_name(module_name, get_iso_8601_date())
 
 
 def get_knowledge_today(module_name):
@@ -45,4 +45,4 @@ def get_knowledge_today(module_name):
     :param str module_name: The name of the knowledge resource
     :rtype: str
     """
-    return get_arty_knowledge(module_name, get_iso_8601_date())
+    return get_knowledge_file_name(module_name, get_iso_8601_date())

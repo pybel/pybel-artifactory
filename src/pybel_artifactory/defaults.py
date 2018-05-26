@@ -2,7 +2,7 @@
 
 """Default resources hosted by Fraunhofer SCAI."""
 
-from .utils import get_arty_annotation_url, get_arty_namespace_url
+from .utils import get_annotation_url, get_namespace_url
 
 default_namespace_spec = [
     ('ADO', 'alzheimer-disease-ontology', '1.0.2'),
@@ -34,7 +34,7 @@ default_namespace_spec = [
 ]
 
 default_namespaces = {
-    keyword: get_arty_namespace_url(namespace, version)
+    keyword: get_namespace_url(namespace, version)
     for keyword, namespace, version in default_namespace_spec
 }
 
@@ -44,9 +44,9 @@ CHEBI_IDS = default_namespaces['CHEBIID']
 HGNC_GENE_FAMILIES = default_namespaces['GFAM']
 NIFT = default_namespaces['NIFT']
 
-CONFIDENCE = get_arty_annotation_url('confidence', '1.0.0')
-MESHD = get_arty_annotation_url('mesh-diseases', '20170511')
-NEUROMMSIG = get_arty_annotation_url('neurommsig', '1.0.3')
+CONFIDENCE = get_annotation_url('confidence', '1.0.0')
+MESHD = get_annotation_url('mesh-diseases', '20170511')
+NEUROMMSIG = get_annotation_url('neurommsig', '1.0.3')
 
 # See: https://gist.github.com/lsauer/1312860
 DBSNP_PATTERN = 'rs[0-9]+'
@@ -75,6 +75,6 @@ default_annotation_spec = [
 ]
 
 default_annotations = {
-    keyword: get_arty_annotation_url(annotation, version)
+    keyword: get_annotation_url(annotation, version)
     for keyword, annotation, version in default_annotation_spec
 }

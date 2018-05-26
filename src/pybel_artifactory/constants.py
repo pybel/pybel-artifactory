@@ -21,7 +21,7 @@ def _get_artifactory_base():
 
     :rtype: str
     """
-    return os.environ.get('PYBEL_ARTIFACTORY_BASE', _default_artifactory_base)
+    return os.environ.get('PYBEL_ARTIFACTORY_BASE', _default_artifactory_base).rstrip('/')
 
 
 ARTIFACTORY_BASE = _get_artifactory_base()

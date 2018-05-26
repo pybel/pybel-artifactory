@@ -2,7 +2,7 @@
 
 """Functions for getting the latest resources."""
 
-from .utils import get_arty_annotation_module, get_arty_knowledge_module, get_arty_namespace_module, get_path_helper
+from .utils import get_annotation_module_url, get_knowledge_module_url, get_namespace_module_url, get_path_helper
 
 __all__ = [
     'get_namespace_latest',
@@ -29,7 +29,7 @@ def get_namespace_latest(module_name):
     :return: The URL of the latest version of this namespace
     :rtype: str
     """
-    return _get_latest_arty_helper(module_name, get_arty_namespace_module)
+    return _get_latest_arty_helper(module_name, get_namespace_module_url)
 
 
 def get_annotation_latest(module_name):
@@ -39,7 +39,7 @@ def get_annotation_latest(module_name):
     :return: The URL of the latest version of this annotation
     :rtype: str
     """
-    return _get_latest_arty_helper(module_name, get_arty_annotation_module)
+    return _get_latest_arty_helper(module_name, get_annotation_module_url)
 
 
 def get_knowledge_latest(module_name):
@@ -49,4 +49,4 @@ def get_knowledge_latest(module_name):
     :return: The URL of the latest version of this knowledge document
     :rtype: str
     """
-    return _get_latest_arty_helper(module_name, get_arty_knowledge_module)
+    return _get_latest_arty_helper(module_name, get_knowledge_module_url)

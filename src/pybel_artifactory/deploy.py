@@ -8,7 +8,7 @@ from artifactory import ArtifactoryPath
 
 from .hashing import get_bel_resource_hash
 from .today import get_annotation_today, get_knowledge_today, get_namespace_today
-from .utils import get_arty_annotation_module, get_arty_knowledge_module, get_arty_namespace_module
+from .utils import get_annotation_module_url, get_knowledge_module_url, get_namespace_module_url
 
 __all__ = [
     'deploy_namespace',
@@ -83,7 +83,7 @@ def deploy_namespace(filename, module_name, hash_check=True, auth=None):
     return _deploy_helper(
         filename,
         module_name,
-        get_arty_namespace_module,
+        get_namespace_module_url,
         get_namespace_today,
         hash_check=hash_check,
         auth=auth
@@ -104,7 +104,7 @@ def deploy_annotation(filename, module_name, hash_check=True, auth=None):
     return _deploy_helper(
         filename,
         module_name,
-        get_arty_annotation_module,
+        get_annotation_module_url,
         get_annotation_today,
         hash_check=hash_check,
         auth=auth
@@ -124,7 +124,7 @@ def deploy_knowledge(filename, module_name, auth=None):
     return _deploy_helper(
         filename,
         module_name,
-        get_arty_knowledge_module,
+        get_knowledge_module_url,
         get_knowledge_today,
         hash_check=False,
         auth=auth

@@ -8,7 +8,7 @@ from pybel_artifactory.constants import (
     ARTIFACTORY_ANNOTATION_BASE_URL, ARTIFACTORY_KNOWLEDGE_BASE_URL,
     ARTIFACTORY_NAMESPACE_BASE_URL,
 )
-from pybel_artifactory.utils import get_arty_annotation_url, get_arty_knowledge_url, get_arty_namespace_url
+from pybel_artifactory.utils import get_annotation_url, get_knowledge_url, get_namespace_url
 
 TEST_ANNOTATION_RESOURCE = 'neurommsig'
 TEST_NAMESPACE_RESOURCE = 'hgnc'
@@ -18,7 +18,7 @@ TEST_KNOWLEDGE_RESOURCE = 'central-dogma'
 class TestResources(unittest.TestCase):
 
     def test_get_annotation_url(self):
-        url = get_arty_annotation_url(TEST_ANNOTATION_RESOURCE, '1.0.3')
+        url = get_annotation_url(TEST_ANNOTATION_RESOURCE, '1.0.3')
         self.assertEqual('{base}/{module}/{module}-{version}.belanno'.format(
             base=ARTIFACTORY_ANNOTATION_BASE_URL,
             module=TEST_ANNOTATION_RESOURCE,
@@ -26,11 +26,11 @@ class TestResources(unittest.TestCase):
         ), url)
 
     def test_get_namespace_url(self):
-        url = get_arty_namespace_url(TEST_NAMESPACE_RESOURCE, '1.0.3')
+        url = get_namespace_url(TEST_NAMESPACE_RESOURCE, '1.0.3')
         self.assertEqual('{}/hgnc/hgnc-1.0.3.belns'.format(ARTIFACTORY_NAMESPACE_BASE_URL), url)
 
     def test_get_knowledge_url(self):
-        url = get_arty_knowledge_url(TEST_KNOWLEDGE_RESOURCE, '1.0.3')
+        url = get_knowledge_url(TEST_KNOWLEDGE_RESOURCE, '1.0.3')
         self.assertEqual('{base}/{module}/{module}-{version}.bel'.format(
             base=ARTIFACTORY_KNOWLEDGE_BASE_URL,
             module=TEST_KNOWLEDGE_RESOURCE,
