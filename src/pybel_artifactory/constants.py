@@ -6,12 +6,12 @@ import os
 
 __all__ = [
     'ARTIFACTORY_BASE',
-    'ARTIFACTORY_NAMESPACE_BASE',
-    'ARTIFACTORY_ANNOTATION_BASE',
-    'ARTIFACTORY_BEL_BASE',
+    'ARTIFACTORY_NAMESPACE_BASE_URL',
+    'ARTIFACTORY_ANNOTATION_BASE_URL',
+    'ARTIFACTORY_KNOWLEDGE_BASE_URL',
 ]
 
-_default_artifactory_base = 'https://arty.scai.fraunhofer.de/artifactory/bel/'
+_default_artifactory_base = 'https://arty.scai.fraunhofer.de/artifactory/bel'
 
 
 def _get_artifactory_base():
@@ -25,6 +25,6 @@ def _get_artifactory_base():
 
 
 ARTIFACTORY_BASE = _get_artifactory_base()
-ARTIFACTORY_NAMESPACE_BASE = ARTIFACTORY_BASE + 'namespace/'
-ARTIFACTORY_ANNOTATION_BASE = ARTIFACTORY_BASE + 'annotation/'
-ARTIFACTORY_BEL_BASE = ARTIFACTORY_BASE + 'knowledge/'
+ARTIFACTORY_NAMESPACE_BASE_URL = '{base}/namespace'.format(base=ARTIFACTORY_BASE)
+ARTIFACTORY_ANNOTATION_BASE_URL = '{base}/annotation'.format(base=ARTIFACTORY_BASE)
+ARTIFACTORY_KNOWLEDGE_BASE_URL = '{base}/knowledge'.format(base=ARTIFACTORY_BASE)
